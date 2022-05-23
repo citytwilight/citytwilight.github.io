@@ -1,0 +1,1426 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="DASCTF Sept X 浙江工业大学秋季挑战赛, citytwilight">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>DASCTF Sept X 浙江工业大学秋季挑战赛 | citytwilight</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">citytwilight</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">citytwilight</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">DASCTF Sept X 浙江工业大学秋季挑战赛</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Misc-Crypto/">
+                                <span class="chip bg-color">Misc Crypto</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CTF/" class="post-category">
+                                CTF
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-03-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="DASCTF-Sept-X-浙江工业大学秋季挑战赛wp"><a href="#DASCTF-Sept-X-浙江工业大学秋季挑战赛wp" class="headerlink" title="DASCTF Sept X 浙江工业大学秋季挑战赛wp"></a>DASCTF Sept X 浙江工业大学秋季挑战赛wp</h1><h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h3><p><strong>题目（[网鼎杯 2020 青龙组]原题）</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">#!&#x2F;usr&#x2F;bin&#x2F;env python
+# -*- coding: utf-8 -*-
+from Crypto.Util.number import *
+import random
+flag&#x3D;b&#39;flag&#123;******************&#125;&#39;
+n &#x3D; 2 ** 256
+flaglong&#x3D;bytes_to_long(flag)
+m &#x3D; random.randint(2, n-1) | 1
+c &#x3D; pow(m, flaglong, n)
+print(&#39;m &#x3D; &#39; + str(m))
+print(&#39;c &#x3D; &#39; + str(c))
+
+# m &#x3D; 73964803637492582853353338913523546944627084372081477892312545091623069227301
+# c &#x3D; 21572244511100216966799370397791432119463715616349800194229377843045443048821<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其实乍一看你会发现他和RSA加密很像，最后的加密过程为c = pow(m, bytes_to_long(flag), n)</p>
+<p>RSA加密就是明文为m，取公钥e和n，密文c=pow(m,e,n)</p>
+<p>这边的一个明显区别为，可以理解为flag明文作为RSA加密里面的公钥e进行的求解。</p>
+<p>这个在密码学里面是基于离散对数的一种加密，我们在求解明文的时候，也就相当于是求解基于同余运算和原根的一种对数运算。</p>
+<p>求解这种问题的话我们用python的sympy模块的discrete_log函数进行求解就可以了。discrete_log(n,c,m)</p>
+<p><strong>解题脚本</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">import sympy
+from Crypto.Util.number import *
+n &#x3D; 2 ** 256
+m &#x3D; 73964803637492582853353338913523546944627084372081477892312545091623069227301
+c &#x3D; 21572244511100216966799370397791432119463715616349800194229377843045443048821
+flag&#x3D;sympy.discrete_log(n,c,m)
+
+print(long_to_bytes(flag))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="RSA1"><a href="#RSA1" class="headerlink" title="RSA1"></a>RSA1</h3><pre class="line-numbers language-none"><code class="language-none">from hashlib import sha512
+from Crypto.Util.number import long_to_bytes, getPrime, bytes_to_long
+from libnum import invmod, gcd
+import itertools
+import time
+import random
+n&#x3D;0xb41fb5d27aaacb43b64fed1bf6e11d0841ad4ad34e398f623479f734614f14075efce2f3f66361ed6cbea9e6b37fbf3d40764c5b1f802a37c5dc9ef7936a811e7fbcc282db778436315733926acc6cf29ae656814f412b6214de34c3decb2fb997df7de72589d059a6c8f6477e225b904a8a19ce220a5162182bff50b78517421f08ad9926e998060d481ef96c563ad3de95775885efa28772d58819d759cb8cf38da0dae0c93f0e54485fdc8468eff77f32653dd89bff7682a677be8d6c0327b372605202c657ccf82cf4d6678e017ffede8823d5804cba1e577ea5fa1d1b2cbe7ef5fefc691bd32757e98326abaf372d8f0fb83acd8528cbe79272a6c6a9ed6050e979680a6df31d7f91fee2d95944e1157f556661ec838c23ae257cfd844fc394e245fdbec934a976f82fb5e788f3cbfefa9b606599f40dfc02f49e60b0549f90d916abd89a9d8a06c95ad7f5429ecb1af5d1cb7eea5d9a1809fdd321f6148ef74094da19610af72687b0fb16ba7d81c1febd97d1aa1433e6f1a0e544208d136d358078dbd84099fcf9a1f439bf6e9d141317366f0904e24b561b66a1a54e309f0ea453691c0a16958245a726f68924cef0c44890f687899835df24d2e898164ceec8139ad6dd3b82e85d9b8081d5935618336c5a32785d6ecafa702aec3a2e605fa012b13e9f992203f597b272cd763fac797b0553755458a8dd765f488bL
+e&#x3D;0x1c4ff8928b4500a433443c1c9453a0cf97709941e0d8a9e6bcce3322199d0aaffd3af1f3611724f75911501113d2e45f8e28949750506a0e5da6a752f1b3904ef2c7b332a936e462804e1e218fe53a97fdbde339c2b825f00f07a8276c1c91b008e92bb81c343d66e80ca014ab625c6abf3968cc8a0f95e05f8dbafe23f217f7c356f6c382893817fc93f9dcc9fbaa625e0a606b6543518f52f40dad271c19ba95f7ceb8f371da5831915400cc3710a4b28eb7b154c4c238583f9dea6acfda554034134ced17f0f31c434753b4464202f1abec5ba6068a640602013bb13c4e90b190934d0bbdd68d8f827f93c90391b244ab0378cfdc4f0d70369bf5b511e74212dd8f7f167a3c914ac6206614daa009766ca381e614052c159459f6c73cb12448976ede30dcc6f4d2022259ac7d9566ba16bf1497ac7f26b40f484fc41f36b0b14a8d7a2fcd1a2311283e191ca5e1a5bba0ba99e13f38b46938f5cb2a31c19a3b9c0e77bd7e91120918fb2d8417fb6cd4e13c0ae8a2972e00ac668d1414a6d460223f6704e903156158d846278378c880c5316cb460efc791c07f0162ece663758cd66135e172af1f715e7f58b578dff23c3beb29c3e955982b2484625ac34e698987e7e81167b40e68118c3002aaff9a1d420a36edf8e34c197e7ecdcf4858620fe720a8dffca3928377abbbaf10532d3df8f81e36cce2efc76ea301edb4abL
+enc_flag&#x3D;0x39159c3347b30b993b02607d4e0add3d7550b0239191c562d12d674d535ab99458c021a6ed2baf0403400d76c7fc81017af027146e80489067f912590c1b44f6eb071bec820eae589d6efd8eab806d69ad11556141fd9b32e046fbc8ea1ca70942489c31d431301c5c04d2b9af84db0fce4ca9ac143b29bc22d4a6f694019dd8b54c24969641c465bee3d3ee8aaf8cf2144249690fb54d4a9c8631d90a2f3039d766fae259d0bc4eba19017e140d3042deb73a6361d00deb3324d53def9d208c9e76e16d8322b4f75713960a5975a8c7084deddd53d2d42153a6240efbda5a8751fe0cd3bbbc7267cafbc58b885370500a0a2fba32a539237b9a2b9973bea21e1daf9e1b72a742ef84998ac487b01816334c1b81549358a6963f7371e28a229043252fb2fbe4904f969ec32d9b0d8a93c855d3165c92813599114870275802043e1ec2c46f2b425c546c077d4314cb7cecfa156f31fb02302d8fa5323d33794302f9265ed34efe5601caa7c676f2624fd50f090d601f6b494e2697d46e1c63eeb1f9ca365965fc32d1a688dc7bd68ea98a555ceb3556668b44620cc432fe06a95f5a57ab07e963c312bc99b522b2e9ffaa03bee231696ea121fd0485a11c47d5dd78553847cc4bbe4b1cdcea69c1c802d194fa2cf34bc6ccaceb3bf8c229a9baa4f40f0adcae4fff6e012c062eabc95ceab679fd6c46f5540134cff383df7931L
+fuzzing &#x3D; &quot;abcdefghijklmnopqrstuvwxyz0123456789QWERTYUIOPASDFGHJKLZXCVBNM&quot;
+fuzz &#x3D; itertools.permutations(fuzzing, 5)
+
+def cal_bit(num):
+	num &#x3D; int(num)
+	l &#x3D; len(bin(num))
+	return l-2
+
+def isqrt(n):
+    x &#x3D; n
+    y &#x3D; (x + 1) &#x2F;&#x2F; 2
+    while y &lt; x:
+        x &#x3D; y
+        y &#x3D; (x + n &#x2F;&#x2F; x) &#x2F;&#x2F; 2
+    if pow(x, 2) &#x3D;&#x3D; n:
+    	return x
+    else:
+    	return False
+
+def divide_pq(ed, n):
+	# ed &#x3D; e*d
+	k &#x3D; ed - 1
+	while True:
+		g &#x3D; random.randint(3, n-2)
+		t &#x3D; k
+		while True:
+			if t % 2 !&#x3D; 0:
+				break
+			t &#x2F;&#x3D; 2
+			x &#x3D; pow(g, t, n)
+			if x &gt; 1 and gcd(x-1, n) &gt; 1:
+				p &#x3D; gcd(x-1, n)
+				return (p, n&#x2F;p)
+
+def pi_b(x):
+	bt &#x3D; 536380958350616057242691418634880594502192106332317228051967064327642091297687630174183636288378234177476435270519631690543765125295554448698898712393467267006465045949611180821007306678935181142803069337672948471202242891010188677287454504933695082327796243976863378333980923047411230913909715527759877351702062345876337256220760223926254773346698839492268265110546383782370744599490250832085044856878026833181982756791595730336514399767134613980006467147592898197961789187070786602534602178082726728869941829230655559180178594489856595304902790182697751195581218334712892008282605180395912026326384913562290014629187579128041030500771670510157597682826798117937852656884106597180126028398398087318119586692935386069677459788971114075941533740462978961436933215446347246886948166247617422293043364968298176007659058279518552847235689217185712791081965260495815179909242072310545078116020998113413517429654328367707069941427368374644442366092232916196726067387582032505389946398237261580350780769275427857010543262176468343294217258086275244086292475394366278211528621216522312552812343261375050388129743012932727654986046774759567950981007877856194574274373776538888953502272879816420369255752871177234736347325263320696917012616273L
+	return invmod(x, bt)
+
+def con_fra(a, b):
+	r &#x3D; []
+	while True:
+		if a &#x3D;&#x3D; 1:
+			break
+		tmp &#x3D; a&#x2F;b
+		if tmp !&#x3D; 0:
+			r.append(tmp)
+		a, b &#x3D; b, (a-tmp*b)
+	return r
+
+def wiener_attack(e, n):
+	cf &#x3D; con_fra(e, n)
+	for x in xrange(len(cf)):
+		k, d &#x3D; 0, 1
+		while x &gt;&#x3D; 0:
+			k, d &#x3D; d, d*cf[x] + k
+			x -&#x3D; 1
+		# print &quot;k: %s\nd: %s\n&quot; %(k, d)
+		phi_n &#x3D; (e*d - 1)&#x2F;k
+		B &#x3D; n - phi_n + 1
+		C &#x3D; n
+		dt &#x3D; pow(B, 2) - 4*C    # b^2 - 4*a*c
+		if dt &gt;&#x3D; 0 and isqrt(dt) and (B+isqrt(dt)) % 2 &#x3D;&#x3D; 0:
+			print &quot;phi_n: &quot;, hex(phi_n)
+			return phi_n
+	print &quot;wiener attack fail!&quot;
+    
+t &#x3D; pi_b(e)
+print &quot;get t &#x3D; &quot;, hex(t)
+phi_n &#x3D; wiener_attack(t, n)
+u &#x3D; invmod(t, phi_n)
+print &quot;get u &#x3D; &quot;, hex(u)
+qq, pp &#x3D; divide_pq(u*t, n)
+print &quot;get p &#x3D; &quot;, hex(pp)
+print &quot;get q &#x3D; &quot;, hex(qq)
+d &#x3D; invmod(e, (qq-1)*(pp-1))
+print &quot;get d &#x3D; &quot;, hex(d)
+flag &#x3D; pow(enc_flag, d, n)
+print &quot;get flag: &quot;, long_to_bytes(flag)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Girlfriend’s-account"><a href="#Girlfriend’s-account" class="headerlink" title="Girlfriend’s account"></a>Girlfriend’s account</h3><p><strong>题目</strong></p>
+<p>jackie的女朋友又偷偷用他的信用卡买东西了，你能算算一共花了多少钱吗？</p>
+<img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109251629078.png" alt="image-20210925162931953" style="zoom: 67%;" />    
+
+<p><strong>解题</strong></p>
+<p>excel的函数将人民币大写金额转换成数字，在用查找替换将件数转化成数字(不知道预期操作是啥，反正我这么做也得到flag了)</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x3D;SUM(ISNUMBER(SEARCH(TEXT(&#123;1,2,3,4,5,6,7,8,9&#125;,&quot;[dbnum2]&quot;&amp;&#123;&quot;0亿&quot;;&quot;0仟!*万&quot;;&quot;0佰!*万&quot;;&quot;0拾!*万&quot;;&quot;0万&quot;;&quot;万!*0仟&quot;;&quot;万!*0佰&quot;;&quot;万!*0拾&quot;;&quot;0元&quot;;&quot;0角&quot;;&quot;0分&quot;&#125;),IF(ISERR(FIND(&quot;万&quot;,A2)),&quot;万&quot;,)&amp;A2))*&#123;1,2,3,4,5,6,7,8,9&#125;*10^&#123;8;7;6;5;4;3;2;1;0;-1;-2&#125;)
+
+&#x3D;IF(B3&#x3D;”壹”,1,IF(B3&#x3D;”贰”,2,IF(B3&#x3D;”叁”,3,IF(B3&#x3D;”肆”,4,IF(B3&#x3D;”伍”,5,IF(B3&#x3D;”陆”,6,IF(B3&#x3D;”柒”,7,IF(B3&#x3D;”捌”,8,IF(B3&#x3D;”玖”,9)))))))))  [赛后找到的公式]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109252204230.png">    </p>
+<p>python脚本(这里需要先把账单里面的件数手动转成阿拉伯数字，然后把文件另存为xls)</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109262154731.png" alt="image-20210926215433408">    </p>
+<pre class="line-numbers language-none"><code class="language-none">
+import xlrd
+def hantonum(str1):
+    dict1 &#x3D; &#123;&#39;壹&#39;: 1, &#39;贰&#39;: 2, &#39;叁&#39;: 3, &#39;肆&#39;: 4, &#39;伍&#39;: 5, &#39;陆&#39;: 6, &#39;柒&#39;: 7, &#39;捌&#39;: 8, &#39;玖&#39;: 9&#125;
+    dict2 &#x3D; &#123;&#39;拾&#39;: 10, &#39;佰&#39;: 100, &#39;千&#39;: 1000, &#39;万&#39;: 10000, &#39;元&#39;: 1, &#39;角&#39;: 0.1, &#39;分&#39;: 0.01&#125;
+    result &#x3D; 0
+    for index,i in enumerate(str1):
+        if index&lt;len(str1)-1:
+            if (i in dict1 and str1[index+1] in dict2) or (i in dict2 and str1[index+1]&#x3D;&#x3D;&#39;万&#39;):
+                if str1[index+1] !&#x3D;&#39;万&#39;:
+                    result +&#x3D; dict1[i] * dict2[str1[index+1]]
+                elif i in dict2:
+                    result *&#x3D;10000
+                else:
+                    result +&#x3D; dict1[i]
+                    result *&#x3D; 10000
+    return result
+print(hantonum(&#39;壹佰壹拾玖元玖角玖分&#39;))
+workBook &#x3D; xlrd.open_workbook(&#39;D:\\桌面\\1.xlsx&#39;)
+
+sheet1_content1 &#x3D; workBook.sheet_by_index(0) # sheet索引从0开始
+# 4. 获取整行和整列的值（数组）
+count &#x3D; 0
+for i in range(1,5001):
+    rows &#x3D; sheet1_content1.row_values(i)
+    rows[0] &#x3D; round(hantonum(rows[0]),2)
+    count &#x3D; count+(float(rows[0])*float(rows[1]))
+print(&quot;flag&#123;&quot;+str(round(count,2))+&quot;&#125;&quot;)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 如果Python读取xls文件报错：raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+‘； not supported‘)</p>
+<p>只需要下载pyexcel-xls </p>
+<pre class="line-numbers language-none"><code class="language-none">pip install pyexcel-xls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109262156374.png" alt="image-20210926215616079">    </p>
+<h3 id="双目失明，身残志坚"><a href="#双目失明，身残志坚" class="headerlink" title="双目失明，身残志坚"></a>双目失明，身残志坚</h3><p><strong>题目</strong></p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109251638326.png" alt="image-20210925163844110">    </p>
+<p><strong>解题</strong></p>
+<p>盲水印脚本：<a target="_blank" rel="noopener" href="https://github.com/chishaxie/BlindWaterMark">https://github.com/chishaxie/BlindWaterMark</a></p>
+<p>相关文档：<a target="_blank" rel="noopener" href="http://www.manongjc.com/detail/19-creiiewvkgwfziy.html">http://www.manongjc.com/detail/19-creiiewvkgwfziy.html</a></p>
+<p>python3命令</p>
+<pre class="line-numbers language-none"><code class="language-none">python bwmforpy3.py decode original.png blind.png flag.png –oldseed<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109251641501.png" style="zoom: 50%;" />    
+
+<p>本来以为是 0、1 然后尝试二进制和摩斯 不对</p>
+<p>后来了解到是盲文(题目提示的好啊，身残志坚，一开始没往那方面想 )</p>
+<img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109251644765.png" alt="image-20210925164430844" style="zoom: 67%;" />    
+
+<img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img//img/202109251645191.png" alt="image-20210925164501207" style="zoom: 67%;" />    
+
+<p>最后对照着翻译过来就浙江工业大学的汉语拼音了(其中giang 应该是jiang ie是ye 差点栽在汉语拼音手上)</p>
+<p>盲文对照表：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30785593/article/details/96365878">https://blog.csdn.net/weixin_30785593/article/details/96365878</a></p>
+<h2 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h2><p>萌新不会，看大佬的吧</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/LynneHuan/p/15335597.html">https://www.cnblogs.com/LynneHuan/p/15335597.html</a></p>
+<h2 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h2><p>萌新不会，看大佬的吧</p>
+<p>三道re:<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/holittech/articles/15335668.html">https://www.cnblogs.com/holittech/articles/15335668.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/holittech/articles/15335673.html">https://www.cnblogs.com/holittech/articles/15335673.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/holittech/articles/15335676.html">https://www.cnblogs.com/holittech/articles/15335676.html</a></p>
+<p>大佬哦wp</p>
+<p><a target="_blank" rel="noopener" href="http://www.snowywar.top/?p=2592">http://www.snowywar.top/?p=2592</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">citytwilight</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://citytwilight.github.io/2022/03/26/DASCTF%20Sept%20X%20%E6%B5%99%E6%B1%9F%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%A7%8B%E5%AD%A3%E6%8C%91%E6%88%98%E8%B5%9Bwp/">http://citytwilight.github.io/2022/03/26/DASCTF%20Sept%20X%20%E6%B5%99%E6%B1%9F%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%A7%8B%E5%AD%A3%E6%8C%91%E6%88%98%E8%B5%9Bwp/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">citytwilight</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Misc-Crypto/">
+                                    <span class="chip bg-color">Misc Crypto</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2022/03/26/%E6%9F%90%E9%9B%86%E5%9B%A2%E6%AF%94%E8%B5%9B%E7%9A%84%E5%A5%97%E5%A8%83Misc%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="CTF,套娃Misc题">
+                        
+                        <span class="card-title">CTF,套娃Misc题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CTF做题的wp，本文章关于misc套娃题目。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Misc/">
+                        <span class="chip bg-color">Misc</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Current&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/03/26/DASCTF%20Sept%20X%20%E6%B5%99%E6%B1%9F%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%A7%8B%E5%AD%A3%E6%8C%91%E6%88%98%E8%B5%9Bwp/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="DASCTF Sept X 浙江工业大学秋季挑战赛">
+                        
+                        <span class="card-title">DASCTF Sept X 浙江工业大学秋季挑战赛</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CTF做题的wp，本文章关于DASCTF Sept X 浙江工业大学秋季挑战赛。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Misc-Crypto/">
+                        <span class="chip bg-color">Misc Crypto</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">citytwilight</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/citytwilight" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1473116248@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1473116248" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1473116248" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
